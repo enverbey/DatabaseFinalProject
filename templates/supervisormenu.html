@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/supervisormenu.css">
+    </head>
+    <body>
+        <table id="supervisors-table">
+            <thead>
+            <tr>
+                <th colspan="2" id="supervisors-table-header">Supervisors</th>
+                <th colspan="3">
+                    <div style="display: flex; flex-direction:column;">
+                    <input type="text" id="supervisors-name-filter" placeholder="Filter by name">
+                    <input type="text" id="supervisors-phone-filter" placeholder="Filter by phone">
+                    </div>
+                </th>
+            </tr>
+            <tr>
+            <th colspan="2" id="supervisors-table-header2">
+                Add a supervisor
+            </th>
+            <th colspan="3">
+                <div style="display: flex; flex-direction:row; gap: 20px; justify-content: space-between;">
+                    <div style="display: flex; flex-direction:column; width: 100%;">
+                        <input type="text" id="supervisor-name-adder" placeholder="Supervisor name..">
+                        <input type="text" id="supervisor-surname-adder" placeholder="Supervisor surname..">
+                        <input type="text" id="supervisor-phone-adder" placeholder="Supervisor phone..">
+                        <input type="text" id="supervisor-mail-adder" placeholder="Supervisor E-mail..">
+                    </div>
+                    <button id="addsupervisorbutton">Add</button>
+                </div>
+            </th>
+            </tr>
+            </thead>
+        <tbody id="supervisors-body">
+        </tbody>
+    </body>
+<script src="../static/supervisormenu.js"></script>
+</html>

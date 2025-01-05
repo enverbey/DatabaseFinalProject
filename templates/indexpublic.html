@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thesis Database</title>
+        <link rel="stylesheet" href="../static/indexpublic.css">
+    </head>
+    <body style="display:flex; flex-direction:column; justify-content: space-between; gap: 30px;">
+        <div id="top-bar-container">
+            <div id="topbarbuttons" style="display: flex; flex-direction:row; gap:10px;">
+                <button class="top-bar-button" id="login-btn">Login/Register</button>
+            </div>
+        </div>
+            <div class="table-container" style="display: flex; align-items:center; flex-direction: column; gap:10px;">
+                <div style="display: flex; flex-direction: row; justify-content: space-between; width: 75vw;">
+                <button class="table-button" id="search-theses">Search Theses</button>
+                </div>
+                <table id="thesis-table">
+                    <thead>
+                        <tr>
+                            <th>Thesis No</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Year</th>
+                            <th>Type</th>
+                            <th>Topic</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="thesis-id">
+                                <p id="Empty-message">Search for Thesis!</p>
+                            </td>
+                            <td id="thesis-title"></td>
+                            <td id="thesis-author"></td>
+                            <td id="thesis-year"></td>
+                            <td id="thesis-type"></td>
+                            <td id="thesis-topic"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="bottom-bar-container">
+                <p id="copyright">© 2025 // Made by Ece Gokce, Enver Yilmaz, Yavuz Behic Aydogmus, Gamze Demirci</p>
+            </div>
+            <div id="thesis-details-popup" class="hidden">
+                <div id="thesis-details-popup-content" style="display: flex; flex-direction:column; gap: 10px;">
+                    <button id="close-popup" style="width: 10%;">Close</button>
+                    <div id="thesis-details">
+                        <table id="thesis-details-table">
+                            <tbody>
+                                <tr>
+                                    <td id="thesis-details-title" style="text-align:right; font-weight: 450;">Title</td>
+                                    <td id="thesis-details-doubledot">:</td>
+                                    <td id="thesis-details-title-content" style="text-align:left;">
+                                        <textarea readonly class="thesis-details-textarea" id="thesis-details-title-textarea">Content
+                                        </textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="thesis-details-Author" style="text-align:right; font-weight: 450;">Author</td>
+                                    <td id="thesis-details-doubledot">:</td>
+                                    <td id="thesis-details-author-content" style="text-align:left;">
+                                        <textarea readonly class="thesis-details-textarea" id="thesis-details-author-textarea">Content
+                                        </textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="thesis-details-Year" style="text-align:right; font-weight: 450;">Year</td>
+                                    <td id="thesis-details-doubledot">:</td>
+                                    <td id="thesis-details-year-content" style="text-align:left;">
+                                        <textarea readonly class="thesis-details-textarea" id="thesis-details-Year-textarea">Content
+                                        </textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="thesis-details-abstract" style="text-align:right; font-weight: 450;">Abstract</td>
+                                    <td id="thesis-details-doubledot">:</td>
+                                    <td id="thesis-details-abstract-content" style="text-align:left;">
+                                        <textarea readonly id="thesis-details-abstract-textarea">Content
+                                        </textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="thesis-details-Topic" style="text-align:right; font-weight: 450;">Topic</td>
+                                    <td id="thesis-details-doubledot">:</td>
+                                    <td id="thesis-details-Topic-content" style="text-align:left;">
+                                        <textarea readonly class="thesis-details-textarea" id="thesis-details-Topic-textarea">Content
+                                        </textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="thesis-details-keywords" style="text-align:right; font-weight: 450;">Keywords</td>
+                                    <td id="thesis-details-doubledot">:</td>
+                                    <td id="thesis-details-keywords-content" style="text-align:left;">
+                                        <textarea readonly class="thesis-details-textarea" id="thesis-details-keywords-textarea">Content
+                                        </textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="thesis-details-Type" style="text-align:right; font-weight: 450;">Type</td>
+                                    <td id="thesis-details-doubledot">:</td>
+                                    <td id="thesis-details-type-content" style="text-align:left;">
+                                        <textarea readonly class="thesis-details-textarea" id="thesis-details-type-textarea">Content
+                                        </textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="thesis-details-NumberofPages" style="text-align:right; font-weight: 450;">Number of Pages</td>
+                                    <td id="thesis-details-doubledot">:</td>
+                                    <td id="thesis-details-numberofpages-content" style="text-align:left;">
+                                        <textarea readonly class="thesis-details-textarea" id="thesis-details-numberofpages-textarea">Content
+                                        </textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="thesis-details-Language" style="text-align:right; font-weight: 450;">Language</td>
+                                    <td id="thesis-details-doubledot">:</td>
+                                    <td id="thesis-details-language-content" style="text-align:left;">
+                                        <textarea readonly class="thesis-details-textarea" id="thesis-details-language-textarea">Content
+                                        </textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="thesis-details-Supervisor" style="text-align:right; font-weight: 450;">Title</td>
+                                    <td id="thesis-details-doubledot">:</td>
+                                    <td id="thesis-details-Supervisor-content" style="text-align:left;">
+                                        <textarea readonly class="thesis-details-textarea" id="thesis-details-Supervisor-textarea">Content
+                                        </textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="thesis-details-Cosupervisors" style="text-align:right; font-weight: 450;">Cosupervisor(s)</td>
+                                    <td id="thesis-details-doubledot">:</td>
+                                    <td id="thesis-details-Cosupervisor-content" style="text-align:left;">
+                                        <textarea readonly class="thesis-details-textarea" id="thesis-details-Cosupervisor-textarea">Content
+                                        </textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="thesis-details-University" style="text-align:right; font-weight: 450;">University</td>
+                                    <td id="thesis-details-doubledot">:</td>
+                                    <td id="thesis-details-University-content" style="text-align:left;">
+                                        <textarea readonly class="thesis-details-textarea" id="thesis-details-University-textarea">Content
+                                        </textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="thesis-details-Institute" style="text-align:right; font-weight: 450;">Institute</td>
+                                    <td id="thesis-details-doubledot">:</td>
+                                    <td id="thesis-details-Institute-content" style="text-align:left;">
+                                        <textarea readonly class="thesis-details-textarea" id="thesis-details-Institute-textarea">Content
+                                        </textarea>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </body>
+    <script src="../static/indexpublic.js"></script>
+</html>

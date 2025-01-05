@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/searchmenu.css">
+    </head>
+    <body>
+        <table id="search-table">
+            <thead>
+            <tr>
+                <th colspan="2" id="search-table-header">
+                <div style="display:flex; flex-direction:column; justify-content: center;">
+                <p>Search Theses</p>
+                <p style="font-size: 10px; font-weight: normal;">Leave fields empty if you don't want to search them</p>
+                </div>
+                </th>
+            </tr>
+            </thead>
+        <tbody id="search-body">
+            <tr>
+                <td colspan="2">
+                    <div style="display:flex; flex-direction:row; gap:20px; justify-content:space-between;">
+                        <select name="Type" id="TypeSearchValue">
+                            <option disable selected value>All Types</option>
+                        </select> 
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div style="display:flex; flex-direction:row; align-items: center; justify-content:space-between;">
+                        <p>Between</p>
+                        <input type="number" id="search-year-lower" name="Year" min="1000" max="9999" placeholder="(Year)" required>
+                        <p>and</p>
+                        <input type="number" id="search-year-upper" name="Year" min="1000" max="9999" placeholder="(Year)" required>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="display:flex; flex-direction:row; gap:20px; justify-content:space-between;">
+                        <textarea type="text" class="search-fieldDoe" id="TitleSearchValue" placeholder="Title..."></textarea>
+                    </div>
+                </td>
+                <td>
+                    <div style="display:flex; flex-direction:row; gap:20px; justify-content:space-between;">
+                        <textarea type="text" class="search-fieldDoe" id="AbstractSearchValue" placeholder="Abstract..."></textarea>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="display:flex; flex-direction:row; gap:20px; justify-content:space-between;">
+                        <textarea type="text" class="search-fieldDoe" id="AuthorSearchValue" placeholder="Author..."></textarea>
+                    </div>
+                </td>
+                <td>
+                    <div style="display:flex; flex-direction:row; gap:20px; justify-content:space-between;">
+                        <textarea type="text" class="search-fieldDoe" id="KeywordSearchValue" placeholder="Keyword..."></textarea>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="display:flex; flex-direction:row; gap: 20px; justify-content:space-between;">
+                        <div style="width:100%; display: flex; flex-direction:column; justify-content: space-between;">
+                            <div style="display: flex; flex-direction:row; align-items: center; justify-content: space-evenly;">
+                            <button class="buttoninsidecell" id="topic-menu-submission-btn" onclick="showTopicMenu();">Select</button>
+                            <button class="buttoninsidecell" id="topic-menu-clear-btn">Clear</button>
+                            </div>
+                            <textarea id="topic-textarea"  readonly placeholder="Topic..."></textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" id="topic-hidden-input" name="topic_id"> 
+                </td>
+                <td>
+                    <div style="display: flex; flex-direction:column; justify-content: space-between;">
+                        <div style="display: flex; flex-direction:row; align-items: center; justify-content: space-evenly;">
+                        <button class="buttoninsidecell" id="language-menu-submission-btn" onclick="showLanguageMenu();">Select</button>
+                        <button class="buttoninsidecell" id="language-menu-clear-btn">Clear</button>
+                        </div>
+                        <textarea id="language-textarea" placeholder="Language..." readonly></textarea>
+                        </div>        
+                    <input type="hidden" id="language-hidden-input" name="language_id"> 
+                </td>   
+            </tr>
+            <tr>
+                <td>
+                    <div style="display:flex; flex-direction:row; gap: 20px; justify-content:space-between;">
+                        <div style="width:100%; display: flex; flex-direction:column; justify-content: space-between;">
+                            <div style="display: flex; flex-direction:row; align-items: center; justify-content: space-evenly;">
+                            <button class="buttoninsidecell" id="university-menu-submission-btn" onclick="showUniversityMenu();">Select</button>
+                            <button class="buttoninsidecell" id="university-menu-clear-btn">Clear</button>
+                            </div>
+                            <textarea id="university-textarea"  placeholder="University..." readonly></textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" id="university-hidden-input" name="university_id"> 
+                </td>
+                <td>
+                    <div style="display:flex; flex-direction:row; gap: 20px; justify-content:space-between;">
+                        <div style="width:100%; display: flex; flex-direction:column; justify-content: space-between;">
+                            <div style="display: flex; flex-direction:row; align-items: center; justify-content: space-evenly;">
+                            <button class="buttoninsidecell" id="supervisor-menu-submission-btn" onclick="showSupervisorMenu();">Select</button>
+                            <button class="buttoninsidecell" id="supervisor-menu-clear-btn">Clear</button>
+                            </div>
+                            <textarea id="supervisor-textarea"  placeholder="Supervisor..." readonly></textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" id="supervisor-hidden-input" name="supervisor_id"> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="display:flex; flex-direction:row; gap: 20px; justify-content:space-between;">
+                        <div style="width:100%; display: flex; flex-direction:column; justify-content: space-between;">
+                            <div style="display: flex; flex-direction:row; align-items: center; justify-content: space-evenly;">
+                            <button class="buttoninsidecell" id="institute-menu-submission-btn" onclick="showInstituteMenu();">Select</button>
+                            <button class="buttoninsidecell" id="institute-menu-clear-btn">Clear</button>
+                            </div>
+                            <textarea id="institute-textarea"  placeholder="Institute..." readonly></textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" id="institute-hidden-input" name="institute_id"> 
+                </td>
+                <td>
+                    <div style="display:flex; flex-direction:row; gap: 20px; justify-content:space-between;">
+                        <div style="width:100%; display: flex; flex-direction:column; justify-content: space-between;">
+                            <div style="display: flex; flex-direction:row; align-items: center; justify-content: space-evenly;">
+                            <button class="buttoninsidecell" id="cosupervisor-menu-submission-btn" onclick="showSupervisorMenu();">Select</button>
+                            <button class="buttoninsidecell" id="cosupervisor-menu-clear-btn">Clear</button>
+                            </div>
+                            <textarea id="cosupervisor-textarea"  placeholder="Cosupervisor..." readonly></textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" id="cosupervisor-hidden-input" name="supervisor_id"> 
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div style="display: flex; flex-direction:column; align-items: center; justify-content: center;">
+                    <button style="width: 50%; background-color:rgba(220, 20, 60, 0.563);" class="buttoninsidecell" id="search-menu-search-btn" onclick="">Search</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </body>
+</body>
+<script src="../static/searchmenu.js"></script>
+</html>

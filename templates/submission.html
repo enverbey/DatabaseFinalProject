@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thesis Database</title>
+        <link rel="stylesheet" href="../static/submission.css">
+    </head>
+    <body style="display:flex; flex-direction:column; justify-content: space-between; gap: 30px;">
+        <div id="top-bar-container">
+            <p id="currentuser-display">Logged in as: {{session_data['email']}}</p>
+            <div id="topbarbuttons" style="display: flex; flex-direction:row; gap:10px;">
+                <button class="top-bar-button" id="my-profile">My Profile</button>
+                <button class="top-bar-button" id="logout-btn">Logout</button>
+            </div>
+        </div>
+        <div class="table-container">
+            
+            <table id="submission-table">
+                <thead>
+                    <tr>
+                        <th colspan="3" id="thesis-submission-header">Thesis Submission </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="row1doe">
+                    <td id="SpecialSnowflake">
+                    <div style="display: flex; flex-direction: row; align-items: center; gap: 20px; justify-content: center;">
+                    <p>Title</p>
+                    <textarea type="text" id="submission-title" placeholder="Enter title"></textarea>
+                    </div>
+                    </td>
+                    <td>
+                    <div style="display: flex; flex-direction: row; align-items: center; gap: 20px; justify-content: center;">
+                    <p> Number of Pages</p>
+                    <textarea type="text" style="width: 50%; text-align: center;" id="number-of-pages-submission" placeholder="Number of Pages"></textarea>
+                    </div>
+                    </td>
+                    <td>
+                        <div style="display: flex; flex-direction: row; align-items: center; gap: 20px; justify-content: center;">
+                            <p>Year</p>
+                            <input type="number" id="submission-year" name="Year" min="1000" max="9999" placeholder="(YYYY)" required>
+                        </div>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td colspan="3">
+                    <div style="display: flex; flex-direction: row; align-items: center; gap: 30px; justify-content: space-evenly;">
+                    <p>Abstract</p>    
+                    <textarea type="text" id="submission-abstract" placeholder="Abstract..."></textarea>
+                    </div>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="display: flex; flex-direction:column; justify-content: space-between;">
+                                <div style="display: flex; flex-direction:row; align-items: center; justify-content: space-evenly;">
+                                    <p>Topic</p>
+                                    <button class="buttoninsidecell" id="topic-menu-submission-btn" onclick="showTopicMenu();">Select</button>
+                                    <button class="buttoninsidecell" id="topic-menu-clear-btn">Clear</button>
+                                </div>
+                                <textarea style="height: 75px;" id="topics-textarea" readonly></textarea>
+                            </div>        
+                            <input type="hidden" id="topics-hidden-input" name="topic_ids"> 
+                        </td>
+                        <td>
+                        <div style="display: flex; flex-direction:column; justify-content: space-between;">
+                        <div style="display: flex; flex-direction:row; align-items: center; justify-content: space-evenly;">
+                        <p>Language</p>
+                        <button class="buttoninsidecell" id="language-menu-submission-btn" onclick="showLanguageMenu();">Select</button>
+                        <button class="buttoninsidecell" id="language-menu-clear-btn">Clear</button>
+                        </div>
+                        <textarea style="text-align: center;" id="language-textarea" readonly></textarea>
+                        </div>        
+                        <input type="hidden" id="language-hidden-input" name="language_id"> 
+                        </td>        
+                    <td>
+                    <div style="display: flex; flex-direction:column; justify-content: space-between;">
+                    <div style="display: flex; flex-direction:row; align-items: center; justify-content: space-evenly;">    
+                    <p>Keywords</p>
+                    <button class="buttoninsidecell" id="keyword-menu-submission-btn" onclick="showKeywordMenu();">Select</button>
+                    <button class="buttoninsidecell" id="keyword-menu-clear-btn">Clear</button>
+                    </div>
+                    <textarea type="text" style="height: 75px;" id="keyword-textarea" readonly></textarea>
+                    </div>
+                    <input type="hidden" id="keyword-hidden-input" name="keyword_ids"> 
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>
+                    <div style="display: flex; flex-direction:column; justify-content: space-between;">
+                    <div style="display: flex; flex-direction:row; align-items: center; justify-content: center;">
+                    <p title='Type is retrieved from the database'>Type*</p>
+                    </div>
+                    <select name="Type" id="submission-type">
+                        <option disable selected value>--Select Type--</option>
+                    </select> 
+                    </div>
+                    </td>    
+                    <td>
+                        <div style="display: flex; flex-direction:column; justify-content: space-between;">
+                        <div style="display: flex; flex-direction:row; align-items: center; justify-content: space-evenly;">
+                        <p>University</p>
+                        <button class="buttoninsidecell" id="university-menu-submission-btn" onclick="showUniversityMenu();">Select</button>
+                        <button class="buttoninsidecell" id="university-menu-clear-btn">Clear</button>
+                        </div>
+                        <textarea id="university-textarea" style="text-align: center;" readonly></textarea>
+                        </div>        
+                        <input type="hidden" id="university-hidden-input" name="university_id"> 
+                    </td>
+                    <td>
+                        <div style="display: flex; flex-direction:column; justify-content: space-between;">
+                        <div style="display: flex; flex-direction:row; align-items: center; justify-content: space-evenly;">    
+                        <p>Institute</p>
+                        <button class="buttoninsidecell" id="institute-menu-submission-btn" onclick="showInstituteMenu();">Select</button>
+                        <button class="buttoninsidecell" id="institute-menu-clear-btn">Clear</button>
+                        </div>
+                        <textarea type="text"  id="institute-textarea" readonly></textarea>
+                        </div>
+                        <input type="hidden" id="institute-hidden-input" name="institute_id"> 
+                    </td>
+                    </tr>
+                    <td>
+                        <div style="display: flex; flex-direction:row; align-items: center; justify-content: space-evenly;">
+                            <p>Supervisor(s)</p>
+                            <button class="buttoninsidecell" id="supervisor-menu-submission-btn" onclick="showSupervisorMenu();">Select</button>
+                            <button class="buttoninsidecell" id="supervisor-menu-clear-btn">Clear</button>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="display: flex; flex-direction:column; align-items: center; justify-content:space-evenly;">
+                            <p>Supervisor</p>
+                            <textarea type="text"  id="supervisor-textarea" readonly></textarea>
+                        </div>
+                        <input type="hidden" id="supervisor-hidden-input" name="supervisor_id"> 
+                    </td>
+                    <td>
+                        <div style="display: flex; flex-direction:column; align-items: center; justify-content:space-evenly;">
+                            <p>Cosupervisor(s)</p>
+                            <textarea type="text"  id="cosupervisor-textarea" readonly></textarea>
+                        </div>
+                        <input type="hidden" id="cosupervisor-hidden-input" name="supervisor_id"> 
+                    </td>
+                    <tr>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="table-button" id="submit-thesis-btn">Submit Thesis</button>
+        </div>
+        <div id="bottom-bar-container">
+            <p id="copyright">© 2025 // Made by Ece Gokce, Enver Yilmaz, Yavuz Behic Aydogmus, Gamze Demirci</p>
+        </div>
+    </body>
+    <script src="static/submission.js"></script>
+</html>

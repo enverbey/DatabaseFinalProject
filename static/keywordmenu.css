@@ -1,0 +1,100 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background: #404040;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+
+/* table */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 5px;
+    border-radius: 3px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    table-layout:fixed; 
+    word-wrap: break-word; 
+    overflow: hidden; 
+    color:#fff;
+    white-space: wrap;
+}
+
+#keywords-filter{
+    overflow: auto;
+    width: 80%;
+}
+#keywords-adder{
+    overflow: auto;
+    width: 60%;
+}
+
+
+th,
+td {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+th {
+    text-align: left;
+}
+
+thead th {
+    background-color: #55608f;
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+td {
+    position: relative;
+}
+
+td:hover::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -9999px;
+    bottom: -9999px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: -1;
+}
+
+#thesis-submission-header{
+    text-align: center;
+}
+/* ^table */
+
+
+
+/* general page buttons */
+
+button {
+    padding: 5px;
+    background-color: #55608f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border: 5px;
+    border-radius: 3px;
+}
+.table-button{
+    text-align: center;
+    display: block; 
+    margin: 0 auto;
+    margin-top: 10px;
+}
+button:hover {
+    background-color: #3a4b6f;
+}
+#delete-button{
+    background-color: #6f3a3a;
+}
